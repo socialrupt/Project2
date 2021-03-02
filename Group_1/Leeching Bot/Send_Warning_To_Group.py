@@ -21,12 +21,17 @@ def Main_Ting():
         elif str(df3.loc[0]["Warning_Status"]).upper() == "OFF":
             Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV), text="You have not fully engaged.")
 
-            for I in df4["Leached_Likes"]:
-                print(I, "lollllllllllllllllllllllllllllllllllllllllllll")
-                if str(I) != "nan":
-                    Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),text = "https://www.instagram.com/{}/".format(I))
-                elif str(I) == "nan":
-                    for I in df4["Leached_Comments"]:
+            print(df4["Leached_Likes"].dropna())
+            Num_Lines_Looped_Over = 0
+
+            for I in df4["Leached_Likes"].dropna():
+                Num_Lines_Looped_Over += 1
+                Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
+                                           text="https://www.instagram.com/{}/".format(I))
+
+                if Num_Lines_Looped_Over == len(df4["Leached_Likes"].dropna()):
+                    print(df4["Leached_Comments"].dropna())
+                    for I in df4["Leached_Comments"].dropna():
                         Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),text="https://www.instagram.com/{}/".format(I))
                 else:
-                    print("This should never run!!")
+                    pass
