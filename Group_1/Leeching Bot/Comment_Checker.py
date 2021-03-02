@@ -8,8 +8,8 @@ def Main_Ting():
     L = instaloader.Instaloader()
     USER = "socialrupt"
     PASSWORD = "I am the best123_Instagram"
-    #L.login(USER, PASSWORD)
-    L.load_session_from_file(USER)
+    L.login(USER, PASSWORD)
+    #L.load_session_from_file(USER)
     #---------------------------
     Number_Of_Engagment = 0
     DX_Number = pd.read_csv("../Group1_Settings.csv")["DxNum"].iloc[0]
