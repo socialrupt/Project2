@@ -9,7 +9,7 @@ import sys
 
 
 
-updater = Updater(token='1556820797:AAH172KNLitYDHfdyPMLanWyJnK5xuGrVx8', use_context=True)
+updater = Updater(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
 j = updater.job_queue
 dispatcher = updater.dispatcher
 
@@ -75,6 +75,7 @@ def Start_Leaching_Proccess(update, context):
                 Check_Following_Admins.Main_Ting()
 
             else:
+                print(84734938)
                 import Like_Checker
                 Like_Checker.Main_Ting()
                 import Comment_Checker
