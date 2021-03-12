@@ -17,12 +17,46 @@ def Main_Ting():
         if str(df3.loc[0]["Warning_Status"]).upper() == "ON":
             Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV), text="You have not fully engaged. \nYou have been warned!!!")
 
-            break
+            Num_Lines_Looped_Over = 0
+            try:
+                if len(df4["Leached_Likes"].dropna()) > 0:
+                    for I in df4["Leached_Likes"].dropna():
+                        print(df4["Leached_Likes"].dropna(), "lllllllllll")
+                        Num_Lines_Looped_Over += 1
+                        Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
+                                                   text="https://instagram.com/p/{}/ Like Required ❌".format(I),
+                                                   disable_web_page_preview=True)
+
+                        if Num_Lines_Looped_Over == len(df4["Leached_Likes"].dropna()):
+                            print(df4["Leached_Comments"].dropna())
+                            Num_Lines_Looped_Over = 0
+                            for I in df4["Leached_Comments"].dropna():
+                                Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
+                                                           text="https://instagram.com/p/{}/ Comment Required ❌".format(
+                                                               I), disable_web_page_preview=True)
+
+
+                        else:
+                            pass
+                elif len(df4["Leached_Likes"].dropna()) == 0:
+                    # The code below dosnt requre the same elif statment as the likes block of code becuase LIKES LEACH goes first.
+                    for I in df4["Leached_Comments"].dropna():
+                        Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
+                                                   text="https://instagram.com/p/{}/ Comment Required ❌".format(I),
+                                                   disable_web_page_preview=True)
+
+
+            finally:
+
+                filename = "Leached_Posts.csv"
+                f = open(filename, "w+")
+                writer = csv.writer(f)
+                writer.writerow(["Leached_Comments", "Leached_Likes"])
+                f.close()
+
         elif str(df3.loc[0]["Warning_Status"]).upper() == "OFF":
             Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV), text="You have not fully engaged.")
 
-            print(len(df4["Leached_Likes"].dropna()))
-            print(len(df4["Leached_Comments"].dropna()))
 
             Num_Lines_Looped_Over = 0
             try:
@@ -51,6 +85,7 @@ def Main_Ting():
 
 
             finally:
+
                 filename = "Leached_Posts.csv"
                 f = open(filename, "w+")
                 writer = csv.writer(f)
