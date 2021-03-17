@@ -88,7 +88,7 @@ def Start_Leaching_Proccess(update, context):
 
     else:
         context.bot.send_message(chat_id=update.message.chat.id,
-                                 text="test test test test...",
+                                 text="Please /start me in private first.",
                                  disable_web_page_preview=True)
 
 dispatcher.add_handler(CommandHandler("Get_Links", Get_Links))
