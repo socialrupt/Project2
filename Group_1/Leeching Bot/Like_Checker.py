@@ -3,10 +3,10 @@ def Main_Ting():
     from instaloader import Post
     import pandas as pd
     import csv
-
     L = instaloader.Instaloader()
-    USER = "socialrupt"
-    PASSWORD = "I am the best123_Instagram"
+
+    USER = str(pd.read_csv("../../Instagram_accounts.csv")["Leeching_Bot_Username"].iloc[0])
+    PASSWORD = str(pd.read_csv("../../Instagram_accounts.csv")["Leeching_Bot_Password"].iloc[0])
     L.login(USER, PASSWORD)
 
     # ---------------------------
