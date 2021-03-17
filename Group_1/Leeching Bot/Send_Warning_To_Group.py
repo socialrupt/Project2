@@ -6,7 +6,7 @@ import telegram.error
 import csv
 import pandas as pd
 def Main_Ting():
-    Bot_With_Token = telegram.Bot(token='1556820797:AAH172KNLitYDHfdyPMLanWyJnK5xuGrVx8')
+    Bot_With_Token = telegram.Bot(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0])
 
     df1 = pd.read_csv("Warning file test.csv").tail(1)
     df2 = pd.read_csv("Links_That_Need_To_Give_Engagment.csv")
