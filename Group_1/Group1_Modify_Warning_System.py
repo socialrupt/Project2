@@ -212,7 +212,7 @@ def See_Settings_in_Group1_WarningSystem_Settings(update: Update, context: Callb
     import dataframe_image as dfi
     dfi.export(df, 'Photo_Of_Warning_System.png')
 
-    Bot_With_Token = telegram.Bot(token='1505711355:AAER5a9RirtlftUFmdkMjQ8F0towhw6Sp1g')
+    Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0])
 
     Bot_With_Token.send_photo(chat_id = update.message.chat_id, photo = open("Photo_Of_Warning_System.png", "rb"))
 
