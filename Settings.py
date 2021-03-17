@@ -20,7 +20,7 @@ from Group_1.Group1_Modify_FollowAdmin_List import *
 from Group_1.Group1_Modify_Warning_System import *
 #----------
 
-updater = Updater("1505711355:AAER5a9RirtlftUFmdkMjQ8F0towhw6Sp1g", use_context=True)
+updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0], use_context=True)
 
 
 dispatcher = updater.dispatcher
