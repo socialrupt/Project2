@@ -17,7 +17,7 @@ def Main_Ting():
     File_Save = "Warning file test.csv"
     Num_Of_Times_Warned = 0
     #----------------------
-    updater = Updater(token='1556820797:AAH172KNLitYDHfdyPMLanWyJnK5xuGrVx8', use_context=True)
+    updater = Updater(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
 
     dispatcher = updater.dispatcher
 
