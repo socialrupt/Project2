@@ -16,8 +16,8 @@ def Main_Ting():
 
     L = instaloader.Instaloader()
 
-    USER = "socialrupt_following"
-    PASSWORD = "I am the best123_Instagram"
+    USER = str(pd.read_csv("../../Instagram_accounts.csv")["AdminFollowing_Bot_Username"].iloc[0])
+    PASSWORD = str(pd.read_csv("../../Instagram_accounts.csv")["AdminFollowing_Bot_Password"].iloc[0])
     L.login(USER, PASSWORD)
 
     df1 = pd.read_csv("Links_That_Need_To_Give_Engagment.csv")
@@ -56,7 +56,7 @@ def Main_Ting():
 
             elif Num_Of_Admins_Not_Following > 0 and Reminder_Messages_Sent == 0 and Comment_Checker_Activated == 0: #Remind the user privately that they need to follow all admins
                 Reminder_Messages_Sent += 1
-                Bot_With_Token = telegram.Bot(token='1556820797:AAH172KNLitYDHfdyPMLanWyJnK5xuGrVx8')
+                Bot_With_Token = telegram.Bot(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0])
                 Bot_With_Token.sendMessage(chat_id=str(df1["Link_User_Id"].iloc[0]),
                                            text="@{} You MUST follow all the admins on Instagram before posting a link".format(df1["User_Name"].iloc[0]))
                 Bot_With_Token.sendMessage(chat_id=str(df1["Link_User_Id"].iloc[0]),
