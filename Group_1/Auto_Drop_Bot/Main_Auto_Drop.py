@@ -23,7 +23,7 @@ L = instaloader.Instaloader()
 
 
 
-Bot_With_Token = telegram.Bot(token='1556820797:AAH172KNLitYDHfdyPMLanWyJnK5xuGrVx8')
+Bot_With_Token = telegram.Bot(token= pd.read_csv("../Group1_Global_Settings.csv")["Autodrop_Bot_Key"].iloc[0])
 while True:
     print(DT.now())
     print(111)
