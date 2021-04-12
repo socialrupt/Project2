@@ -53,8 +53,9 @@ while True:
 #the page must have astleast one post for this to work
             for post in posts:
                 break
-            if post.date > SINCE:
-                if post.date <= UNTIL:
+
+            if post.date_local > SINCE:
+                if post.date_local <= UNTIL:
                     print(444)
 
 
