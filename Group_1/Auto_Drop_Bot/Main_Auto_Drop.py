@@ -12,10 +12,10 @@ import csv
 import pandas as pd
 import time
 
-File_Save = "../Group1_Autodrop.csv"
+File_Save = "Group_1/Group1_Autodrop.csv"
 
 Get_Posts_Miniutes_Ago = 10
-Group_Username_From_CSV = "@{}".format(pd.read_csv("../Group1_Global_Settings.csv")["Group_Username"].iloc[0])
+Group_Username_From_CSV = "@{}".format(pd.read_csv("Group_1/Group1_Global_Settings.csv")["Group_Username"].iloc[0])
 #--------------------
 
 
@@ -23,7 +23,7 @@ L = instaloader.Instaloader()
 
 
 
-Bot_With_Token = telegram.Bot(token= pd.read_csv("../Group1_Global_Settings.csv")["Autodrop_Bot_Key"].iloc[0])
+Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Autodrop_Bot_Key"].iloc[0])
 while True:
     print(DT.now())
     print(111)
