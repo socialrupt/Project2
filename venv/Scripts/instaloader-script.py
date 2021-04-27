@@ -1,10 +1,10 @@
 #!c:\users\44744\documents\project2\venv\scripts\python.exe
-# EASY-INSTALL-ENTRY-SCRIPT: 'instaloader==4.6','console_scripts','instaloader'
+# EASY-INSTALL-ENTRY-SCRIPT: 'instaloader==4.7.1','console_scripts','instaloader'
 import re
 import sys
 
 # for compatibility with easy_install; see #2198
-__requires__ = 'instaloader==4.6'
+__requires__ = 'instaloader==4.7.1'
 
 try:
     from importlib.metadata import distribution
@@ -30,4 +30,4 @@ globals().setdefault('load_entry_point', importlib_load_entry_point)
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(load_entry_point('instaloader==4.6', 'console_scripts', 'instaloader')())
+    sys.exit(load_entry_point('instaloader==4.7.1', 'console_scripts', 'instaloader')())
