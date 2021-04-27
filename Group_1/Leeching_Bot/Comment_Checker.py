@@ -6,13 +6,13 @@ def Main_Ting():
     import csv
 
     L = instaloader.Instaloader()
-    USER = str(pd.read_csv("../../Instagram_accounts.csv")["Leeching_Bot_Username"].iloc[1])
-    PASSWORD = str(pd.read_csv("../../Instagram_accounts.csv")["Leeching_Bot_Password"].iloc[1])
+    USER = str(pd.read_csv("Instagram_accounts.csv")["Leeching_Bot_Username"].iloc[1])
+    PASSWORD = str(pd.read_csv("Instagram_accounts.csv")["Leeching_Bot_Password"].iloc[1])
     L.login(USER, PASSWORD)
     #L.load_session_from_file(USER)
     #---------------------------
     Number_Of_Engagment = 0
-    DX_Number = pd.read_csv("../Group1_Settings.csv")["DxNum"].iloc[0]
+    DX_Number = pd.read_csv("Group_1/Group1_Settings.csv")["DxNum"].iloc[0]
     Posts_Checked = 0
     All_Posts_Leached = 0
     Num_Of_Lines_Parsed = 0
@@ -20,9 +20,9 @@ def Main_Ting():
     Num_Sent_To_User = 0# Numbeer of times we have sent the list of leached posts to the user.
     #---------------------------
 
-    df1 = pd.read_csv("Links_That_Need_To_Give_Engagment.csv")
-    df2 = pd.read_csv("Links_That_Need_To_Get_Engagment.csv")
-    df3 = pd.read_csv("../Group1_Premium.csv")
+    df1 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Give_Engagment.csv")
+    df2 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Get_Engagment.csv")
+    df3 = pd.read_csv("Group_1/Group1_Premium.csv")
     #----------------------
 
     for Account_From_File_That_Need_To_Give_Engagment in reversed(df1["Links"].dropna()):
@@ -74,7 +74,7 @@ def Main_Ting():
                                                     if Number_Of_Engagment == DX_Number:#runs if they have engaged 100%
                                                         print("They have fully engaged.",
                                                               Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
-                                                        with open("Links_That_Need_To_Get_Engagment.csv", "a+", encoding='UTF-8') as f:
+                                                        with open("Group_1/Leeching_Bot/Links_That_Need_To_Get_Engagment.csv", "a+", encoding='UTF-8') as f:
                                                             writer = csv.writer(f, delimiter=",", lineterminator="\n")
                                                             writer.writerow([Account_From_File_That_Need_To_Give_Engagment])
 
@@ -88,7 +88,7 @@ def Main_Ting():
 
                                                             df = pd.DataFrame(data=d, )
 
-                                                            df.to_csv("Links_That_Need_To_Be_Sent_To_Group.csv", index=False)
+                                                            df.to_csv("Group_1/Leeching_Bot/Links_That_Need_To_Be_Sent_To_Group.csv", index=False)
 
 
                                                             import Send_Checked_Link_To_Group
@@ -100,7 +100,7 @@ def Main_Ting():
                                                               Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
                                                         All_Posts_Leached += 1
 
-                                                        with open("Leached_Posts.csv", "a+",
+                                                        with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a+",
                                                                   encoding='UTF-8') as f: #adds the leached link to a file
                                                             writer = csv.writer(f, delimiter=",",
                                                                                 lineterminator="\n")
@@ -113,7 +113,7 @@ def Main_Ting():
                                                     elif Posts_Checked == DX_Number and Number_Of_Engagment < DX_Number:
                                                         print("We have checked all post but u havnt engaged",
                                                               Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
-                                                        with open("Leached_Posts.csv", "a+",
+                                                        with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a+",
                                                                   encoding='UTF-8') as f: #adds the leached link to a file
                                                             writer = csv.writer(f, delimiter=",",
                                                                                 lineterminator="\n")
@@ -130,7 +130,7 @@ def Main_Ting():
                                                         print("Not your comment")
                                                         All_Posts_Leached += 1
 #-----------------------------------------------------------------------------------------
-                                                        with open("Leached_Posts.csv", "a",
+                                                        with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                                   encoding='UTF-8') as f:
                                                             writer = csv.writer(f, delimiter=",",
                                                                                 lineterminator="\n")
@@ -144,7 +144,7 @@ def Main_Ting():
 
                                                         print("You havnt engaged",
                                                               Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
-                                                        with open("Leached_Posts.csv", "a",
+                                                        with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                                   encoding='UTF-8') as f:
                                                             writer = csv.writer(f, delimiter=",",
                                                                                 lineterminator="\n")
@@ -159,7 +159,7 @@ def Main_Ting():
 
                                             All_Posts_Leached += 1
 
-                                            with open("Leached_Posts.csv", "a",
+                                            with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                       encoding='UTF-8') as f:
                                                 writer = csv.writer(f, delimiter=",",
                                                                     lineterminator="\n")
@@ -172,7 +172,7 @@ def Main_Ting():
                                             print("There are no comments.",
                                                   Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
 
-                                            with open("Leached_Posts.csv", "a",
+                                            with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                       encoding='UTF-8') as f:
                                                 writer = csv.writer(f, delimiter=",",
                                                                     lineterminator="\n")
@@ -186,7 +186,7 @@ def Main_Ting():
                                             Num_Sent_To_User += 1
 
 
-                                            import Warning_System
+                                            import Group_1.Leeching_Bot.Warning_System as Warning_System
                                             Warning_System.Main_Ting()
 
                                         else:
@@ -194,7 +194,7 @@ def Main_Ting():
 
                                 else:#for preium users
 
-                                    with open("Links_That_Need_To_Get_Engagment.csv", "a+", encoding='UTF-8') as f:
+                                    with open("Group_1/Leeching_Bot/Links_That_Need_To_Get_Engagment.csv", "a+", encoding='UTF-8') as f:
                                         writer = csv.writer(f, delimiter=",", lineterminator="\n")
                                         writer.writerow([Account_From_File_That_Need_To_Give_Engagment])
 
@@ -209,9 +209,9 @@ def Main_Ting():
 
                                         df = pd.DataFrame(data=d, )
 
-                                        df.to_csv("Links_That_Need_To_Be_Sent_To_Group.csv", index=False)
+                                        df.to_csv("Group_1/Leeching_Bot/Links_That_Need_To_Be_Sent_To_Group.csv", index=False)
 
-                                        import Send_Checked_Link_To_Group
+                                        import Group_1.Leeching_Bot.Send_Checked_Link_To_Group as Send_Checked_Link_To_Group
                                         Send_Checked_Link_To_Group.Main_ting()
                                         break
                             else:#Runs when it hasn't loop over all the links or when the sender's username dosnt match a premium user's username.

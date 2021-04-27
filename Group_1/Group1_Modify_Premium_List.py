@@ -19,7 +19,7 @@ Waiting_For_UserName_To_Add_in_Group1_Premium_Settings, \
 Waiting_For_UserName_To_Kick_in_Group1_Premium_Settings = range(5)
 
 
-Save_File_in_Group1_Premium_Settings = "Group_1/Group1_Premium.csv"
+Save_File_in_Group1_Premium_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Premium.csv"
 Colunm_Name_in_Group1_Premium_Setting = "UserNames"
 
 

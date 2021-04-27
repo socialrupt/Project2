@@ -20,19 +20,19 @@ from Group_1.Group1_Modify_FollowAdmin_List import *
 from Group_1.Group1_Modify_Warning_System import *
 #----------
 
-updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0], use_context=True)
+updater = Updater(token= pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0], use_context=True)
 
 
 dispatcher = updater.dispatcher
 
 #------------------------
 UserName_Of_Owner = "Denny_Duque"#Denny_Duque wot_wanderer
-Group_1_Username = "featureamadx42"
+Group_1_Username = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Group_Username"].iloc[0]
 #------------------------
-Save_File_in_Group1_Premium_Settings = "Group_1/Group1_Premium.csv"
-Save_File_in_Group1_GroupFormat_Settings = "Group_1/Group1_Settings.csv"
-Save_File_in_Group1_AutoDrop_Settings = "Group_1/Group1_Autodrop.csv"
-Save_File_in_Group1_FollowAdmins_Settings = "Group_1/Group1_Admins_IG.csv"
+Save_File_in_Group1_Premium_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Premium.csv"
+Save_File_in_Group1_GroupFormat_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv"
+Save_File_in_Group1_AutoDrop_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Autodrop.csv"
+Save_File_in_Group1_FollowAdmins_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Admins_IG.csv"
 #------------------------------------------
 Waiting_For_User_Choice, \
 Waiting_For_Choice_Group1_Settings, \

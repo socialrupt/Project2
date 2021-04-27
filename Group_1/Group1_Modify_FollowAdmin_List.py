@@ -27,7 +27,7 @@ Waiting_For_UserName_To_Add_in_Group1_FollowAdmins_Settings, \
 Waiting_For_UserName_To_Kick_in_Group1_FollowAdmins_Settings, \
 Waiting_For_Status_To_Change_in_Group1_FollowAdmins_Settings = range(14)
 
-Save_File_in_Group1_FollowAdmins_Settings = "Group_1/Group1_Admins_IG.csv"
+Save_File_in_Group1_FollowAdmins_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Admins_IG.csv"
 Colunm_Name_in_Group1_FollowAdmins_Setting = "UserNames"
 
 
@@ -162,9 +162,9 @@ def Change_Follow_Admin_Status_Task_Complete_Message_in_Group1_FollowAdmins_Sett
     if "Off" in update.message.text or "On" in update.message.text:
 
         if str(update.message.text).upper() == "OFF":
-            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
             df1.at[0, "FollowAdmins_Status"] = "OFF"
-            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Follow all admin rule has been turned OFF.".format(update.message.text),
@@ -173,9 +173,9 @@ def Change_Follow_Admin_Status_Task_Complete_Message_in_Group1_FollowAdmins_Sett
 
             return Waiting_For_User_Choice_in_Group1_FollowAdmins_Settings
         elif str(update.message.text).upper() == "ON":
-            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
             df1.at[0, "FollowAdmins_Status"] = "ON"
-            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Follow all admin rule has been turned ON.".format(update.message.text),

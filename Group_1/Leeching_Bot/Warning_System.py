@@ -17,13 +17,13 @@ def Main_Ting():
     File_Save = "Warning file test.csv"
     Num_Of_Times_Warned = 0
     #----------------------
-    updater = Updater(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
+    updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
 
     dispatcher = updater.dispatcher
 
-    df1 = pd.read_csv("Links_That_Need_To_Give_Engagment.csv")
-    df2 = pd.read_csv("Warning file test.csv")
-    df3 = pd.read_csv("../Group1_Settings.csv")
+    df1 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Give_Engagment.csv")
+    df2 = pd.read_csv("Group_1/Leeching_Bot/Warning file test.csv")
+    df3 = pd.read_csv("Group_1/Group1_Settings.csv")
     #---------------------------------------------------------
     if str(df3.loc[0]["Warning_Status"]).upper() == "ON":
 
@@ -60,7 +60,7 @@ def Main_Ting():
 
                                 df2.to_csv(File_Save, index=False)
 
-                                import Send_Warning_To_Group
+                                import Group_1.Leeching_Bot.Send_Warning_To_Group as Send_Warning_To_Group
                                 Send_Warning_To_Group.Main_Ting()
 
                                 break
@@ -72,18 +72,18 @@ def Main_Ting():
 
                                     updater.bot.kick_chat_member(str(Loop_Over_Links_ChatID), str(Loop_Over_UserIDs))
 
-                                    df1 = pd.read_csv("Warning file test.csv")
+                                    df1 = pd.read_csv("Group_1/Leeching_Bot/Warning file test.csv")
                                     df2 = df1[df1.User_id != Links_Dropped_By_User_UserID]
-                                    df2.to_csv("Warning file test.csv", index=False)
+                                    df2.to_csv("Group_1/Leeching_Bot/Warning file test.csv", index=False)
 
                                 elif str(df3.loc[0]["Warning_Punishment"]).upper() == "MUTE":
 
                                     Leacher_Muted = ChatPermissions(can_send_messages = False, can_send_media_messages = False, can_send_polls = False, can_send_other_messages = False, can_add_web_page_previews = False, can_change_info = False, can_invite_users = False, can_pin_messages = False)
                                     updater.bot.restrict_chat_member(str(Loop_Over_Links_ChatID), str(Loop_Over_UserIDs), permissions= Leacher_Muted)
 
-                                    df1 = pd.read_csv("Warning file test.csv")
+                                    df1 = pd.read_csv("Group_1/Leeching_Bot/Warning file test.csv")
                                     df2 = df1[df1.User_id != Links_Dropped_By_User_UserID]
-                                    df2.to_csv("Warning file test.csv", index=False)
+                                    df2.to_csv("Group_1/Leeching_Bot/Warning file test.csv", index=False)
 
                                 else:
                                     pass
@@ -101,13 +101,13 @@ def Main_Ting():
                                 with open(File_Save, 'a+', newline='') as write_obj:
                                     csv_writer = csv.writer(write_obj)
                                     csv_writer.writerow([Links_Dropped_By_User_UserID, Links_Dropped_By_User_Chat_Id, 1])
-                                import Send_Warning_To_Group
+                                import Group_1.Leeching_Bot.Send_Warning_To_Group as Send_Warning_To_Group
                                 Send_Warning_To_Group.Main_Ting()
                                 break
                             else:
                                 pass
     elif str(df3.loc[0]["Warning_Status"]).upper() == "OFF":
-        import Send_Warning_To_Group
+        import Group_1.Leeching_Bot.Send_Warning_To_Group as Send_Warning_To_Group
         Send_Warning_To_Group.Main_Ting()
 
     else:
