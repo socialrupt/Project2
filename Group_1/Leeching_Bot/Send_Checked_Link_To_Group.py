@@ -6,10 +6,10 @@ import csv
 import pandas as pd
 
 def Main_ting():
-    Bot_With_Token = telegram.Bot(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0])
+    Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0])
 
-    df1 = pd.read_csv("Links_That_Need_To_Be_Sent_To_Group.csv")
-    df2 = pd.read_csv("Links_That_Need_To_Give_Engagment.csv")
+    df1 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Be_Sent_To_Group.csv")
+    df2 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Give_Engagment.csv")
 
 
 

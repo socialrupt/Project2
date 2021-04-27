@@ -9,13 +9,13 @@ import sys
 
 
 
-updater = Updater(token= pd.read_csv("../Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
+updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Leeching_Bot_Key"].iloc[0], use_context=True)
 j = updater.job_queue
 dispatcher = updater.dispatcher
 
 #-------------------------------------------------
-DX_Num = pd.read_csv("../Group1_Settings.csv")["DxNum"].iloc[0]
-File_Save = "Links_That_Need_To_Give_Engagment.csv"
+DX_Num = pd.read_csv("Group_1/Group1_Settings.csv")["DxNum"].iloc[0]
+File_Save = "Group_1/Leeching_Bot/Links_That_Need_To_Give_Engagment.csv"
 #-------------------------------------------------
 
 #------------------------------------------------
@@ -24,8 +24,8 @@ File_Save = "Links_That_Need_To_Give_Engagment.csv"
 
 def Get_Links(update, context):
     try:
-        DX_Num = pd.read_csv("../Group1_Settings.csv")["DxNum"].iloc[0]
-        df1 = pd.read_csv("Links_That_Need_To_Get_Engagment.csv")
+        DX_Num = pd.read_csv("Group_1/Group1_Settings.csv")["DxNum"].iloc[0]
+        df1 = pd.read_csv("Group_1/Leeching_Bot/Links_That_Need_To_Get_Engagment.csv")
         Links_Sent = 0
         for Loop_Over_Links in df1["Links"].tail(DX_Num):
             Links_Sent += 1
@@ -68,17 +68,17 @@ def Start_Leaching_Proccess(update, context):
 
             df.to_csv(File_Save, index=False)
 
-            df2 = pd.read_csv("../Group1_Settings.csv")["FollowAdmins_Status"]
+            df2 = pd.read_csv("Group_1/Group1_Settings.csv")["FollowAdmins_Status"]
             print(df2)
             if "ON" in str(df2).upper():
-                import Check_Following_Admins
+                import Group_1.Leeching_Bot.Check_Following_Admins as Check_Following_Admins
                 Check_Following_Admins.Main_Ting()
 
             else:
-                print(84734938)
-                import Like_Checker
+
+                import Group_1.Leeching_Bot.Like_Checker as Like_Checker
                 Like_Checker.Main_Ting()
-                import Comment_Checker
+                import Check_Following_Admins.Comment_Checker as Comment_Checker
                 Comment_Checker.Main_Ting()
 
         else:
