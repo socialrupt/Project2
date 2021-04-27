@@ -1,0 +1,15 @@
+1) Not sending links to user and stuck error.
+	1.1)Make sure there are enough links in the CSV file.
+
+2) Kick/Ban not working.
+	2.1)Make sure in the CSV it is written as Ban and not Kick.
+
+3)Instagram account not working with autodrop.
+	3.1)Make sure the account is public.
+	3.2)Update instaloader
+
+4)Filenotfound error.
+	4.1)If the error is comming from a file that is imported then make sure the path that has a  problem is not path for the dervied file.
+
+5) Code stuck
+	5.1) If the file is stuck when you check if they are following the admins then....
