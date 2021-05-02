@@ -31,7 +31,7 @@ Waiting_For_Penalty_To_Change_in_Group1_WarningSystem_Settings, \
 Waiting_For_NumberWarns_To_Change_in_Group1_WarningSystem_Settings, \
 Waiting_For_Status_To_Change_in_Group1_WarningSystem_Settings = range(18)
 
-Save_File_in_Group1_WarningSystem_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv"
+Save_File_in_Group1_WarningSystem_Settings = "Group_1/Group1_Settings.csv"
 Colunm_Name_in_Group1_WarningSystem_Setting1 = "Warning_Punishment"
 Colunm_Name_in_Group1_WarningSystem_Setting2 = "NumWarns"
 Colunm_Name_in_Group1_WarningSystem_Setting3 = "Warning_Status"
@@ -63,7 +63,7 @@ def start_in_Group1_WarningSystem_Settings(update: Update, context: CallbackCont
 #-Add username-----------------------------------------------------------------------
 
 def Change_Penalty_in_Group1_WarningSystem_Settings(update: Update, context: CallbackContext) -> int:
-    df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv").loc[0, "Warning_Status"]
+    df1 = pd.read_csv("Group_1/Group1_Settings.csv").loc[0, "Warning_Status"]
     if df1.upper() == "ON":
         update.message.reply_text('1.Ban 2.Mute')
         update.message.reply_text('Please, enter the number of the new penalty.')
@@ -77,10 +77,10 @@ def Change_Penalty_Task_Complete_Message_in_WarningSystem_Settings(update: Updat
     try:
         if int(update.message.text) == 1 or int(update.message.text) == 2:
             Penaltys = {1: "Ban", 2: "Mute"}
-            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting1] = str(Penaltys[int(update.message.text)])
             print(Penaltys[int(update.message.text)])
-            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Penalty for hitting the max warns has been changed to {}.".format(str(Penaltys[int(update.message.text)])),
@@ -111,7 +111,7 @@ def Change_Penalty_Task_Complete_Message_in_WarningSystem_Settings(update: Updat
 #-Kick username-----------------------------------------------------------------------
 
 def Change_Max_Warns_in_Group1_WarningSystem_Settings(update: Update, context: CallbackContext) -> int:
-    df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv").loc[0, "Warning_Status"]
+    df1 = pd.read_csv("Group_1/Group1_Settings.csv").loc[0, "Warning_Status"]
     if df1.upper() == "ON":
         update.message.reply_text('Please, enter the number of warns.')
 
@@ -125,9 +125,9 @@ def Change_Max_Warns_Task_Complete_Message_in_Group1_WarningSystem_Settings(upda
     try:
         if type(int(update.message.text)) == type(int()):
 
-            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
             df1.at[0, Colunm_Name_in_Group1_WarningSystem_Setting2] = int(update.message.text)
-            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Number of max warns has been changed to {}.".format(update.message.text),
@@ -168,11 +168,11 @@ def Change_WarningSystem_Status_Task_Complete_Message_in_Group1_WarningSystem_Se
     if "Off" in update.message.text or "On" in update.message.text:
 
         if str(update.message.text).upper() == "OFF":
-            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting1] = "None"
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting2] = "None"
             df1.at[0, Colunm_Name_in_Group1_WarningSystem_Setting3] = "OFF"
-            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Waring system has been turned OFF.".format(update.message.text),
@@ -181,11 +181,11 @@ def Change_WarningSystem_Status_Task_Complete_Message_in_Group1_WarningSystem_Se
 
             return Waiting_For_User_Choice_in_Group1_WarningSystem_Settings
         elif str(update.message.text).upper() == "ON":
-            df1 = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")
+            df1 = pd.read_csv("Group_1/Group1_Settings.csv")
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting1] = "Ban"#defualt
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting2] = "3"#defualt
             df1.at[0, Colunm_Name_in_Group1_WarningSystem_Setting3] = "ON"
-            df1.to_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv", index=False)
+            df1.to_csv("Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(
                 "Waring system has been turned ON.".format(update.message.text),
@@ -208,11 +208,11 @@ def See_Settings_in_Group1_WarningSystem_Settings(update: Update, context: Callb
 
     update.message.reply_text('Converting to image...')
 
-    df = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv")[["Warning_Status", "NumWarns", "Warning_Punishment"]]
+    df = pd.read_csv("Group_1/Group1_Settings.csv")[["Warning_Status", "NumWarns", "Warning_Punishment"]]
     import dataframe_image as dfi
     dfi.export(df, 'Photo_Of_Warning_System.png')
 
-    Bot_With_Token = telegram.Bot(token= pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0])
+    Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0])
 
     Bot_With_Token.send_photo(chat_id = update.message.chat_id, photo = open("Photo_Of_Warning_System.png", "rb"))
 

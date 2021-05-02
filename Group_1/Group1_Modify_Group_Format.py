@@ -20,7 +20,7 @@ Waiting_For_UserName_To_Kick_in_Group1_Premium_Settings, \
 Waiting_For_Number_in_Group1_GroupFormat_Settings = range(6)
 
 
-Save_File_in_Group1_GroupFormat_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv"
+Save_File_in_Group1_GroupFormat_Settings = "Group_1/Group1_Settings.csv"
 Colunm_Name_in_Group1_GroupFormat_Settings = "DxNum"
 
 #-----------------------------------------------------------------

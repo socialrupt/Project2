@@ -12,18 +12,18 @@ import pandas as pd
 import csv
 import telegram
 
-updater = Updater(token= pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0], use_context=True)
+updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0], use_context=True)
 
 
 dispatcher = updater.dispatcher
 
 #------------------------
 UserName_Of_Owner = "Denny_Duque"#Denny_Duque wot_wanderer
-Group_1_Username = pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Group_Username"].iloc[0]
+Group_1_Username = pd.read_csv("Group_1/Group1_Global_Settings.csv")["Group_Username"].iloc[0]
 #------------------------
-Save_File_in_Group1_Premium_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Premium.csv"
-Save_File_in_Group1_GroupFormat_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Settings.csv"
-Save_File_in_Group1_AutoDrop_Settings = "C:/Users/44744/Documents/Project2/Group_1/Group1_Autodrop.csv"
+Save_File_in_Group1_Premium_Settings = "Group_1/Group1_Premium.csv"
+Save_File_in_Group1_GroupFormat_Settings = "Group_1/Group1_Settings.csv"
+Save_File_in_Group1_AutoDrop_Settings = "Group_1/Group1_Autodrop.csv"
 Colunm_Name_in_Group1_GroupFormat_Settings = "DxNum"
 #------------------------------------------
 Waiting_For_User_Choice, \
@@ -155,7 +155,7 @@ def See_List_in_Group1_AutoDrop_Settings(update: Update, context: CallbackContex
     import dataframe_image as dfi
     dfi.export(df, 'Photo_Of_Autodrop_List.png')
 
-    Bot_With_Token = telegram.Bot(token= pd.read_csv("C:/Users/44744/Documents/Project2/Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0])
+    Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Settings_Bot_Key"].iloc[0])
 
     Bot_With_Token.send_photo(chat_id = update.message.chat_id, photo = open("Photo_Of_Autodrop_List.png", "rb"))
 
