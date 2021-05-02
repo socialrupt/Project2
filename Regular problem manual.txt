@@ -3,6 +3,7 @@ Modules:
 2) pip3 install instaloader
 3) pip install python-telegram-bot
 4) pip install pandas
+5) pip install dataframe-image
 
 1) Not sending links to user and stuck error.
 	1.1)Make sure there are enough links in the CSV file.
