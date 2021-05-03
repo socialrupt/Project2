@@ -69,7 +69,7 @@ def Start_Leaching_Proccess(update, context):
             df.to_csv(File_Save, index=False)
 
             df2 = pd.read_csv("Group_1/Group1_Settings.csv")["FollowAdmins_Status"]
-            print(df2)
+
             if "ON" in str(df2).upper():
                 import Group_1.Leeching_Bot.Check_Following_Admins as Check_Following_Admins
                 Check_Following_Admins.Main_Ting()

@@ -21,14 +21,12 @@ def Main_Ting():
             try:
                 if len(df4["Leached_Likes"].dropna()) > 0:
                     for I in df4["Leached_Likes"].dropna():
-                        print(df4["Leached_Likes"].dropna(), "lllllllllll")
                         Num_Lines_Looped_Over += 1
                         Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
                                                    text="https://instagram.com/p/{}/ Like Required ❌".format(I),
                                                    disable_web_page_preview=True)
 
                         if Num_Lines_Looped_Over == len(df4["Leached_Likes"].dropna()):
-                            print(df4["Leached_Comments"].dropna())
                             Num_Lines_Looped_Over = 0
                             for I in df4["Leached_Comments"].dropna():
                                 Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
@@ -62,13 +60,11 @@ def Main_Ting():
             try:
                 if len(df4["Leached_Likes"].dropna()) > 0:
                     for I in df4["Leached_Likes"].dropna():
-                        print(df4["Leached_Likes"].dropna(), "lllllllllll")
                         Num_Lines_Looped_Over += 1
                         Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),
                                                    text="https://instagram.com/p/{}/ Like Required ❌".format(I), disable_web_page_preview=True)
 
                         if Num_Lines_Looped_Over == len(df4["Leached_Likes"].dropna()):
-                            print(df4["Leached_Comments"].dropna())
                             Num_Lines_Looped_Over = 0
                             for I in df4["Leached_Comments"].dropna():
                                 Bot_With_Token.sendMessage(chat_id=str(Loop_Over_User_Id_From_CSV),text="https://instagram.com/p/{}/ Comment Required ❌".format(I), disable_web_page_preview=True)

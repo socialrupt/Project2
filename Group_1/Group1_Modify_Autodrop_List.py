@@ -87,7 +87,6 @@ def Add_AutoDrop_Member_Task_Complete_Message_in_Group1_AutoDrop_Settings(update
     try:
         if type(int(update.message.text)) == int:
             df11 = pd.read_csv(Save_File_in_Group1_AutoDrop_Settings)
-            print(df11)
             df11.fillna(0, inplace=True)  # xhanges all the empty cells to 0
             #len(df11) - 1 means it adds it to the last row and don't create a new row (CURRENTLY WORKING)
             df11.loc[len(df11) - 1, "AutoDrop_Limit_Per_Day"] = update.message.text

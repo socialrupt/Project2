@@ -42,10 +42,8 @@ def Main_Ting():
 
                                     for Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment in df2["Links"].tail(DX_Number):
                                         Posts_Checked += 1
-                                        print("The num of posts checked is {} and {}".format(Posts_Checked, Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment))
                                         Number_Comments_Checked = 0
                                         Number_Comments_Matched = 0
-                                        print(Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
 
 
                                         Identify_Post_That_Need_Engagment = Post.from_shortcode(L.context, Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
@@ -61,19 +59,16 @@ def Main_Ting():
 
                                         if All_Comments_With_Username != []:#This runs if the posts have comments
                             #-------------------------------------------------
-                                            print("There are comments.", Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
                                             for Loop_Over_Usernames in All_Comments_With_Username:
                                                 Number_Comments_Checked += 1
                                                 if Loop_Over_Usernames == Username_Of_Post_That_Need_To_Give_Engagment:
-                                                    print("Comment mathced",
-                                                          Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
                                                     Number_Comments_Matched += 1
 
                                                     Number_Of_Engagment += 1
 
                                                     if Number_Of_Engagment == DX_Number:#runs if they have engaged 100%
-                                                        print("They have fully engaged.",
-                                                              Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
                                                         with open("Group_1/Leeching_Bot/Links_That_Need_To_Get_Engagment.csv", "a+", encoding='UTF-8') as f:
                                                             writer = csv.writer(f, delimiter=",", lineterminator="\n")
                                                             writer.writerow([Account_From_File_That_Need_To_Give_Engagment])
@@ -96,8 +91,7 @@ def Main_Ting():
                                                             break
 
                                                     elif Posts_Checked == DX_Number and Number_Of_Engagment < DX_Number and All_Posts_Leached == 0:  #runs when all the links have been checked and warns the leacher one time
-                                                        print("We have checked all the comments but you havnt engaged",
-                                                              Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
                                                         All_Posts_Leached += 1
 
                                                         with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a+",
@@ -111,8 +105,7 @@ def Main_Ting():
 
 
                                                     elif Posts_Checked == DX_Number and Number_Of_Engagment < DX_Number:
-                                                        print("We have checked all post but u havnt engaged",
-                                                              Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
                                                         with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a+",
                                                                   encoding='UTF-8') as f: #adds the leached link to a file
                                                             writer = csv.writer(f, delimiter=",",
@@ -127,7 +120,7 @@ def Main_Ting():
                                                 else:#This else clause runs when the comment isnt the users comment
                                                     #What is Number_Of_Engagment != DX_Number -1 for???
                                                     if Number_Of_Engagment != DX_Number - 1 and Posts_Checked == DX_Number and All_Posts_Leached == 0:# warns the leecher when the num of engagment is less than dxnum when all the postes checked is dxnum and olny warns once.
-                                                        print("Not your comment")
+
                                                         All_Posts_Leached += 1
 #-----------------------------------------------------------------------------------------
                                                         with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
@@ -142,8 +135,7 @@ def Main_Ting():
                                                     # What is Number_Of_Engagment != DX_Number -1 for???
                                                     elif Number_Of_Engagment != DX_Number - 1 and Number_Comments_Checked == len(All_Comments_With_Username) and Number_Comments_Matched == 0:
 
-                                                        print("You havnt engaged",
-                                                              Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
                                                         with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                                   encoding='UTF-8') as f:
                                                             writer = csv.writer(f, delimiter=",",
@@ -154,8 +146,7 @@ def Main_Ting():
                                                     else:#This runs if we havnt checked all the post or if they have already been warned.
                                                         pass
                                         elif All_Comments_With_Username == [] and All_Posts_Leached == 0:#warns the leecher if the post has no comments at all
-                                            print("There are no comments.",
-                                                  Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
+
 
                                             All_Posts_Leached += 1
 
@@ -169,8 +160,6 @@ def Main_Ting():
 
 
                                         elif All_Comments_With_Username == []:
-                                            print("There are no comments.",
-                                                  Each_Comment_From_Post_From_File_That_Need_To_Get_Engagment)
 
                                             with open("Group_1/Leeching_Bot/Leached_Posts.csv", "a",
                                                       encoding='UTF-8') as f:

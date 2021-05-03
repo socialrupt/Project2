@@ -111,6 +111,5 @@ def Main_Ting():
         Send_Warning_To_Group.Main_Ting()
 
     else:
-        print("problem!!!!!!!!!!!!!")
-
+        pass
 

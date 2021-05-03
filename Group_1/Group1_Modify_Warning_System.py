@@ -79,7 +79,6 @@ def Change_Penalty_Task_Complete_Message_in_WarningSystem_Settings(update: Updat
             Penaltys = {1: "Ban", 2: "Mute"}
             df1 = pd.read_csv("Group_1/Group1_Settings.csv")
             df1.loc[0, Colunm_Name_in_Group1_WarningSystem_Setting1] = str(Penaltys[int(update.message.text)])
-            print(Penaltys[int(update.message.text)])
             df1.to_csv("Group_1/Group1_Settings.csv", index=False)
 
             update.message.reply_text(

@@ -34,7 +34,6 @@ def Main_Ting():
                                     Loop_Over_UserNames).lower():  # Allowed to enter the if statment if it has checked ALL the usernames in premium csv file or if a premium username matches the sender's username
                                 if str(Loop_Over_Premium_Usernames).lower()[1:] != str(
                                         Loop_Over_UserNames).lower():  # Runs if they are not a premium user
-                                    print("You are not a premium user.")
                                     Identify_Post_That_Need_To_Give_Engagment = Post.from_shortcode(L.context,
                                                                                                     Account_From_File_That_Need_To_Give_Engagment)
 
@@ -58,7 +57,6 @@ def Main_Ting():
                                             All_Likes_With_Username.append(Like)
 
                                         if All_Likes_With_Username != []:#This runs if the post has likes.
-                                            print("This post has likes", Each_Post_From_File_That_Need_To_Get_Engagment)
 
                                             for Loop_Over_Usernames in All_Likes_With_Username:
                                                 Number_Likes_Checked += 1
@@ -68,27 +66,22 @@ def Main_Ting():
                                                     Number_Likes_Matched += 1
                                                     Number_Of_Engagment += 1#Do i need this???
 
-                                                    print("There is a comment that matches there profile.",
-                                                          Each_Post_From_File_That_Need_To_Get_Engagment)
+
 
                                                 elif Number_Likes_Checked == len(All_Likes_With_Username) and Number_Likes_Matched == 0:
-                                                    print("We have checked all the likes and not even one matched.",
-                                                          Each_Post_From_File_That_Need_To_Get_Engagment)
                                                     df1 = pd.read_csv("Group_1/Leeching_Bot/Leached_Posts.csv")
                                                     df1.loc[len(
                                                         df1), "Leached_Likes"] = Each_Post_From_File_That_Need_To_Get_Engagment
                                                     df1.to_csv("Group_1/Leeching_Bot/Leached_Posts.csv", index=False)
 
                                                 else:  # This else clause runs when the like isnt the users like
-                                                    print("This isn't there like.",
-                                                      Each_Post_From_File_That_Need_To_Get_Engagment)
+                                                    pass
 
 
 
 
 
                                         elif All_Likes_With_Username == []:#This runs if the post dosn't have likes.
-                                            print("This post don't have likes", Each_Post_From_File_That_Need_To_Get_Engagment)
 
                                             df1 = pd.read_csv("Group_1/Leeching_Bot/Leached_Posts.csv")
                                             df1.loc[len(df1), "Leached_Likes"] = Each_Post_From_File_That_Need_To_Get_Engagment

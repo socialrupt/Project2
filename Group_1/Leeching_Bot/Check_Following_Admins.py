@@ -64,4 +64,4 @@ def Main_Ting():
                                            text="{}".format(df2.to_string(header = False, index = False)))#TEST THISSSSSSSSSS
             else:#Runs when they are not folowing a admin
                 Num_Of_Admins_Not_Following += 1
-                print("Not following this admin")
+

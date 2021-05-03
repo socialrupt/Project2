@@ -25,8 +25,7 @@ L = instaloader.Instaloader()
 
 Bot_With_Token = telegram.Bot(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Autodrop_Bot_Key"].iloc[0])
 while True:
-    print(DT.now())
-    print(111)
+
     time.sleep(60 * 10)
     Usernames_From_CSV = pd.read_csv(File_Save)
     df11 = pd.read_csv(File_Save)
@@ -34,7 +33,7 @@ while True:
     SINCE = DT.now() - timedelta(minutes=Get_Posts_Miniutes_Ago)
     UNTIL = DT.now()
     for index, row in Usernames_From_CSV.iterrows():
-        print(222)
+
         Target_UserName = row["IG_Username"]
         AutoDrop_Num_Today123 = row["AutoDrop_Num_Today"]
         AutoDrop_Limit_Per_Day123 = row["AutoDrop_Limit_Per_Day"]
@@ -43,12 +42,12 @@ while True:
         if now.hour == 00 and now.minute == 00:#Resets the daily count of drops
             df11.loc[index, "AutoDrop_Num_Today"] = 0
             df11.to_csv(File_Save, index=False)
-            print("!!!")
+
         else:
             pass
 
         if int(AutoDrop_Limit_Per_Day123) > int(AutoDrop_Num_Today123):
-            print(333)
+
             posts = instaloader.Profile.from_username(L.context, Target_UserName[1:]).get_posts()
 #the page must have astleast one post for this to work
             for post in posts:
@@ -56,7 +55,7 @@ while True:
 
             if post.date_local > SINCE:
                 if post.date_local <= UNTIL:
-                    print(444)
+
 
 
                     def Send_AutoDrop_URL_To_Group1():
@@ -85,17 +84,17 @@ while True:
                     df11.to_csv(File_Save, index=False)
                     Send_AutoDrop_URL_To_Group1()
 
-                else:
+                else: #Not the recent post2
 
-                    print("Not the recent post2")
-                    continue #why do we need break?
-            else:
 
-                print("Not the recent post1")
+                    continue
+            else:# Not the recent post1
+
+
                 continue
 
-        else:
-            print("Hit the max limit of day")
+        else:#Hit the max limit of day
+
             continue
 
 #The code is basiclly looping over ALL the fucking posts from an accoun and then will go to the next account.
