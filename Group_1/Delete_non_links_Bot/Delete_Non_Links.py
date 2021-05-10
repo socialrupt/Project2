@@ -3,7 +3,7 @@ from telethon import TelegramClient, events
 import time
 api_id = 2564501
 api_hash = "bd2008ffe2eb9a032917b32b03ad18ea"
-client = TelegramClient('anon', api_id, api_hash)
+client = TelegramClient('Group_1/Delete_non_links_Bot/anon', api_id, api_hash)
 
 
 client.start()
