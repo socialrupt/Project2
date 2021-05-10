@@ -26,7 +26,8 @@ updater = Updater(token= pd.read_csv("Group_1/Group1_Global_Settings.csv")["Sett
 dispatcher = updater.dispatcher
 
 #------------------------
-UserName_Of_Owner = "Denny_Duque"#Denny_Duque wot_wanderer
+UserName_Of_Owner = pd.read_csv("Bot_Settings.csv")["Owner"].iloc[0]
+
 Group_1_Username = pd.read_csv("Group_1/Group1_Global_Settings.csv")["Group_Username"].iloc[0]
 #------------------------
 Save_File_in_Group1_Premium_Settings = "Group_1/Group1_Premium.csv"
